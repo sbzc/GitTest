@@ -10,7 +10,7 @@ public class Demo1 {
 	public Date getTime() {
 		return time;
 	}
-
+//asdasdasd
 	public void setTime(Date time) {
 		this.time = time;
 	}
