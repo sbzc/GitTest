@@ -26,15 +26,17 @@ import cn.hlxy.pojo.Demo1;
 public class UserController {
 	@RequestMapping("{page}")
 	public String user(@PathVariable String page) {
-		
+		System.out.println("sadas");
 		return page;
+
 	}
 	
     @RequestMapping("userLogin")
 	public String userLogin(@RequestParam(defaultValue = "username")String username,String password,Model model,HttpServletRequest req) {
 		System.out.println("username="+username);
 		System.out.println("password="+password);
-		String user = "Ð¡ºì";
+		String user = "Ð¡ï¿½ï¿½";
+
 	  req.getSession().setAttribute("user", username);
 		return "main";
 	}
@@ -46,7 +48,7 @@ public class UserController {
     @RequestMapping(value="ajax")
     @ResponseBody
     public List<String> ajaxDemo() {
-    	System.out.println("ajax·¢ËÍ");
+    	System.out.println("ajaxï¿½ï¿½ï¿½ï¿½");
     	List<String> users = new ArrayList<String>();
     	users.add("aa");
     	users.add("bb");
@@ -57,14 +59,14 @@ public class UserController {
     	
     	Date time = t.getTime();
     	SimpleDateFormat  SimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");  
-        //¸ñÊ½»¯µ±Ç°ÈÕÆÚ  
+        //ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½  
         String format = SimpleDateFormat.format(time.getTime());  
     	System.out.println(t);
     	return "main";
     }
     @RequestMapping("download")
     public void download(String fileName,HttpServletRequest req,HttpServletResponse res) throws IOException {
-    	//ÉèÖÃÏìÓ¦Á÷ÖÐÎÄ¼þ½øÐÐÏÂÔØ 
+    	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
     	res.setHeader("Content-Disposition", "attachment;filename="+fileName);
     	ServletOutputStream out = res.getOutputStream();
     	String path = req.getServletContext().getRealPath("file");
